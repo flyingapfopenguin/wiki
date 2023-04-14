@@ -1,0 +1,27 @@
+body {
+    font-size: 1.2rem;
+    background: #111111;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: #ccc;
+}
+
+#content {
+    margin: auto;
+    max-width: 1200px;
+}
+
+h1 {
+    text-align: center;
+}
+
+a:link, a:active, a:visited, a:hover,
+.navbar > a:link, a:active, a:visited, a:hover {
+    color: #dbc0a0;
+    text-decoration: none;
+}
+
+#toc {
+    padding: 10px;
+    border-radius:10px;
+}

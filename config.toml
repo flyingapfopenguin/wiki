@@ -1,0 +1,8 @@
+baseURL = 'https://wiki.brandt-george.de/'
+languageCode = 'en-us'
+title = 'flyingpenguins Wiki'
+theme = 'wikiTheme'
+
+[markup]
+    [markup.highlight]
+    guessSyntax = true

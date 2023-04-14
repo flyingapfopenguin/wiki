@@ -1,0 +1,9 @@
+{{ define "title" -}}
+{{ .Title | title }}
+{{- end }}
+{{ define "main" -}}
+{{ .Content }}
+{{- range.Pages.ByTitle }}
+	<p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+{{- end }}
+{{- end }}
