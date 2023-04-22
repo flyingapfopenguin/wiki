@@ -70,9 +70,9 @@ set $wofiopts --insensitive --gtk-dark
 bindsym $mod+d exec wofi --show run $wofiopts
 bindsym $mod+a exec ~/.config/sway/actions/`ls ~/.config/sway/actions/ | wofi --show dmenu $wofiopts`
 
-bindsym XF86AudioMute exec amixer sset Master toggle
-bindsym XF86AudioLowerVolume exec amixer sset Master "2%-"
-bindsym XF86AudioRaiseVolume exec amixer sset Master "2%+"
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%
 
 ##########
 # change focus
@@ -309,7 +309,7 @@ sysdata {
 
 volume_status {
 	cache_timeout = 1
-	command = "amixer"
+	command = "pactl"
 	format = " [\?if=is_input 😮|♪] {percentage}% "
 	format_muted = " [\?if=is_input 😶|♪] {percentage}% "
 	thresholds = [(0, 'good')]
