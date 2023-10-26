@@ -53,8 +53,8 @@ See [Dovecot](/dovecot).
 
 To add a new user, do the following:
 
-* Add an entry to the dovecot passwd database: [Configuration - Authentication / Virtual Users](/dovecot#Configuration - Authentication / Virtual Users)
-* Create a virtual mail account in postfix: [Creating mail accounts](/postfix#Creating mail accounts)
+* Add an entry to the dovecot passwd database: [Configuration - Authentication / Virtual Users](/dovecot#configuration---authentication--virtual-users)
+* Create a virtual mail account in postfix: [Creating mail accounts](/postfix#creating-mail-accounts)
 
 ## Optional: Mail signing (DKIM)
 
