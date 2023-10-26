@@ -33,7 +33,7 @@ MUST return the same name, otherwise, many mailservers will reject mail you are 
 
 The general configuration happens in /etc/postfix/main.cf:
 
-```
+```no-highlight
 # See /usr/share/postfix/main.cf.dist for a commented, more complete version
 
 
