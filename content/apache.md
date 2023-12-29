@@ -77,11 +77,11 @@ SSLProtocol -all +TLSv1.2 +TLSv1.3
 </VirtualHost>
 ```
 
-### Rainloop Webmailer
+### SnappyMail Webmailer
 
-see [Rainloop Webmailer](/rainloop).
+see [SnappyMail Webmailer](/snappymail).
 
-For Rainload we need a different Content-Security-Policy:
+For SnappyMail we need a different Content-Security-Policy:
 
 ```
 Header always set Content-Security-Policy "default-src https:; img-src https: data:; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'"

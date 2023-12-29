@@ -62,4 +62,4 @@ See [Opendkim](/opendkim).
 
 ## Optional: Webmailer
 
-See [Rainloop Webmailer](/rainloop).
+See [SnappyMail Webmailer](/snappymail).
