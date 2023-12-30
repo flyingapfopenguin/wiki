@@ -219,7 +219,8 @@ bar
 
 #xwayland disable
 
-# see https://github.com/emersion/xdg-desktop-portal-wlr#running
+# https://wiki.archlinux.org/title/XDG_Desktop_Portal#xdg-desktop-portal-wlr_does_not_start_automatically_on_sway
+exec /usr/bin/systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # start pulseaudio if you're login manager doesn't
@@ -575,5 +576,5 @@ regular7=dcdccc  # white
 ## Run sway
 
 ```bash
-dbus-run-session sway
+env XDG_CURRENT_DESKTOP=sway sway
 ```
