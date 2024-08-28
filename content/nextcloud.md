@@ -26,3 +26,25 @@ It might be a good idea to run the security check from Nextcloud.
 ## Setup a TURN-Server (coturn) for Nextcloud Talk
 
 see https://decatec.de/home-server/nextcloud-talk-mit-eigenem-turn-server-coturn/
+
+## Update process
+
+To check for updates (for apps or the NC instance) use
+```bash
+sudo -u www-data php occ update:check
+```
+
+If updates for apps are available, we can install all of these by
+```bash
+sudo -u www-data php occ app:update --all
+```
+
+One the other hand we can update the NC instance by
+```bash
+sudo -u www-data php --define apc.enable_cli=1 updater/updater.phar
+```
+
+To check your setup use
+```bash
+sudo -u www-data php occ setupchecks
+```
