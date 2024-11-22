@@ -39,6 +39,12 @@ using Pkg
 Pkg.activate(".").
 ```
 
+If, and this is very likely, your package has depedencies, but no `Manifest.toml` is served with the package, you can "resolve" the packages by running
+```julia
+Pkg.resolve()
+```
+*after* activating the package with the code above, see [the Pkg docs about managing packages](https://pkgdocs.julialang.org/v1/managing-packages/).
+
 ## Environments
 
 Compare the [documentation of Pkg.jl](https://pkgdocs.julialang.org/v1/environments/).
