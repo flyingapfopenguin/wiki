@@ -43,6 +43,12 @@ PAPERLESS_ENABLE_UPDATE_CHECK=false
 # To let paperless use a folder structure, configure something like the following,
 # compare https://docs.paperless-ngx.com/advanced_usage/#file-name-handling
 PAPERLESS_FILENAME_FORMAT={{ created_year }}/{{ correspondent }}/{{ title }}
+
+# Une more than one task to parse documents
+PAPERLESS_TASK_WORKERS=4
+
+# Consume documents in subfolders
+PAPERLESS_CONSUMER_RECURSIVE=true
 ```
 
 ## Useful configuration
