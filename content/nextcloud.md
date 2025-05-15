@@ -3,8 +3,6 @@ title: "Nextcloud"
 date: 2023-04-06T22:54:01+02:00
 ---
 
-https://www.jensbrandt.de/foobar
-
 ## Installation
 
 follow https://help.nextcloud.com/t/complete-nc-installation-on-debian-9-stretch-and-manual-update/21881
