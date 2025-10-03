@@ -130,6 +130,34 @@ Now you can test your installation at https://federationtester.matrix.org.
 register_new_matrix_user -c /etc/matrix-synapse/homeserver.yaml http://localhost:8008
 ```
 
+## Update user password
+
+Unfortunately there seems to be no command providing this feature, so we need to do this manually in the database, compare [this blog post](https://paritoshbh.me/blog/reset-user-password-synapse-matrix-homeserver).
+
+Generate a hash for the new password via
+```bash
+hash_password -c /etc/matrix-synapse/homeserver.yaml
+```
+
+and open the database via
+```bash
+sudo -u matrix-synapse sqlite3 /var/lib/matrix-synapse/homeserver.db
+```
+
+to update the users password hash with
+```mysql
+UPDATE users 
+SET password_hash='$2b$12$ED4NT7N6tI4Mbq/IKZES6.oilx0k2iK4DN3a6wPWIEpXSAsIOWe3e' 
+WHERE name='<MATRIX_USERNAME>';
+```
+
+and finally quit the database shell via
+```mysql
+.quit;
+```
+
+before testing the new password.
+
 ## Use LDAP for authentification
 
 This section is based on the corresponding section of https://romangeber.com/matrix_synapse_on_arch_linux/.
