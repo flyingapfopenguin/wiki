@@ -15,7 +15,7 @@ see https://docs.nextcloud.com/server/15/admin_manual/configuration_user/user_au
 
 Usually we get a few "security & setup warnings", see "Settings" -> "Overview". Here are some notes to work on those:
 
-* PHP memory limit: edit the "memory_limit" option in /etc/php/<current php version>/apache2/php.ini
+* PHP memory limit: edit the "memory_limit" option in `/etc/php/<current php version>/apache2/php.ini`
 * activate memory cache via APCu, see documentation
 * the command to add missing indices to the database is meant to be run as php with the user www-data: "sudo -u www-data php occ db:add-missing-indices"
 

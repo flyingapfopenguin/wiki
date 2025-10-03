@@ -105,7 +105,7 @@ chmod 755 /etc/firewall/firewall.conf
 chmod 755 /etc/firewall/firewall.stop
 ```
 
-/etc/systemd/system/firewall.service:
+`/etc/systemd/system/firewall.service`:
 ```
 [Unit]
 Description=Custom iptables-based firewall
@@ -126,7 +126,7 @@ WantedBy=multi-user.target
 
 ## NAT single ports to other subnet
 
-To forward/nat single port(s), in this example for samba server 137, 138 (each udp) and 139, 445 (each tcp), from <network1> to <server> in <network2> use
+To forward/nat single port(s), in this example for samba server 137, 138 (each udp) and 139, 445 (each tcp), from `<network1>` to `<server>` in `<network2>` use
 
 ```bash
 iptables -A FORWARD -o <interface for network2> -i <interface for network1> -s <IP of network1>/24 -m conntrack --ctstate NEW -j ACCEPT

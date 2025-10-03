@@ -44,7 +44,7 @@ Manuell Usage, where
 ./backup.sh srcFolder destFolder [excludeFileList]
 ```
 
-Usage in cron (for a hourly backup), where <path>/backup.sh contains the script above:
+Usage in cron (for a hourly backup), where `<path>/backup.sh` contains the script above:
 
 ```bash
 # m h  dom mon dow   command

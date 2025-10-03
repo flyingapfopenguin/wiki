@@ -24,14 +24,14 @@ pacman -S tinc # on Arch
 mkdir -p /etc/tinc/<vpnName>/hosts
 ```
 
-Create /etc/tinc/<vpnName>/tinc.conf:
+Create `/etc/tinc/<vpnName>/tinc.conf`:
 ```
 Name = <thisNode>
 ConnectTo = <AnotherReachableNode> # optional
 #LocalDiscovery = yes
 ```
 
-Create /etc/tinc/<vpnName>/tinc-up:
+Create `/etc/tinc/<vpnName>/tinc-up`:
 ```
 #!/bin/sh
 ip link set $INTERFACE up
@@ -48,12 +48,12 @@ tincd -n <vpnName> -K4096 # on Debian/Arch (with tinc < 1.1)
 tinc -n <vpnName> generate-rsa-keys # on Gentoo
 tinc -n <vpnName> generate-ed25519-keys # prospective on Gentoo (with tinc >= 1.1)
 ```
-The private key should be placed in /etc/tinc/<vpnName>/ with access limited to the root user, e.g.
+The private key should be placed in `/etc/tinc/<vpnName>/` with access limited to the root user, e.g.
 ```bash
 chmod 600 /etc/tinc/<vpnName>/rsa_key.priv
 ```
 
-while the public key should be stored in /etc/tinc/<vpnName>/hosts/<thisNode> with the following config:
+while the public key should be stored in `/etc/tinc/<vpnName>/hosts/<thisNode>` with the following config:
 ```
 Address = <publicAddressOfThisNode> # only needed, if other nodes should connect to this node
 Port = <port> # only needed, if other nodes should connect to this node and not the standart port is used
@@ -70,11 +70,11 @@ Concluding you need to exchange the public keys (with the public config) between
 
 Assume tinc.service is running.
 
-This VPN is controlled via tinc@<vpnName>.service.
+This VPN is controlled via `tinc@<vpnName>.service`.
 
 ## Setup full tunnel
 
-To setup a full tunnel, we first configure the firewall on the exit node (server) to forward the traffic, see [Firewall](/firewall), and allow ipv4 forwarding in /etc/sysctl.conf:
+To setup a full tunnel, we first configure the firewall on the exit node (server) to forward the traffic, see [Firewall](/firewall), and allow ipv4 forwarding in `/etc/sysctl.conf`:
 
 ```
 net.ipv4.ip_forward=1
@@ -141,7 +141,7 @@ You probably want to use a public DNS to not leak your requested domains beside 
 
 ## Allow connection to another VPN
 
-To allow a node of one VPN (VPN1) to access all nodes of another VPN (VPN2) with the same server, we first configure the firewall on the server to forward the traffic, see [Firewall](/firewall), and allow ipv4 forwarding in /etc/sysctl.conf:
+To allow a node of one VPN (VPN1) to access all nodes of another VPN (VPN2) with the same server, we first configure the firewall on the server to forward the traffic, see [Firewall](/firewall), and allow ipv4 forwarding in `/etc/sysctl.conf`:
 
 ```
 net.ipv4.ip_forward=1
@@ -203,14 +203,14 @@ tinc -n <vpnName> dump graph
 
 To move a device from VPN1 to VPN2 we usually do the following:
 
-- "rsync -avp /etc/tinc/<VPN1>/ /etc/tinc/<VPN2>"
+- ```rsync -avp /etc/tinc/<VPN1>/ /etc/tinc/<VPN2>```
 - change IP adress in config: tinc-up, nodeFile
 - substitude configs for other hosts in the VPN
 - on a server: change ip in nodeFile and move to other VPN
 - sync this change
-- on device: "systemctl stop tinc@<VPN1>.service && systemctl start tinc@<VPN2>.service"
-- on a server: "systemctl restart tinc@<VPN2>.service tinc@<VPN1>.service"
+- on device: ```systemctl stop tinc@<VPN1>.service && systemctl start tinc@<VPN2>.service```
+- on a server: ```systemctl restart tinc@<VPN2>.service tinc@<VPN1>.service```
 - test
-- on device: "systemctl disable tinc@<VPN1>.service && systemctl enable tinc@<VPN2>.service"
-- on device: "rm -r /etc/tinc/<VPN1>"
+- on device: ```systemctl disable tinc@<VPN1>.service && systemctl enable tinc@<VPN2>.service```
+- on device: ```rm -r /etc/tinc/<VPN1>```
 - reboot test

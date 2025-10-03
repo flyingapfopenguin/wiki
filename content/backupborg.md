@@ -210,7 +210,7 @@ To backup a home-directory, we use the following exclude file:
 
 With the config from the script:
 
-```
+```bash
 borg init --encryption=$verschluesselung $repopfad
 ```
 
@@ -229,7 +229,7 @@ borg umount <mountPoint>
 
 ## Usage via cron
 
-Usage in cron (for a hourly backup), where <path>/backup.sh contains the script above:
+Usage in cron (for a hourly backup), where `<path>/backup.sh` contains the script above:
 
 ```bash
 # m h  dom mon dow   command

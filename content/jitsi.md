@@ -35,4 +35,4 @@ To authenticate your secured instance via LDAP, follow https://github.com/jitsi/
 
 ### Further configuration
 
-For further configuration see the main configuration file at /etc/jitsi/meet/<domain>-config.js.
+For further configuration see the main configuration file at `/etc/jitsi/meet/<domain>-config.js`.
