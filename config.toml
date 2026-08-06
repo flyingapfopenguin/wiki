@@ -1,5 +1,5 @@
 baseURL = 'https://wiki.brandt-george.de/'
-languageCode = 'en-us'
+locale = 'en'
 title = 'flyingpenguins Wiki'
 theme = 'wikiTheme'
 
