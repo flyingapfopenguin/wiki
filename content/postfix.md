@@ -21,17 +21,17 @@ apt install postfix
 
 ## Hostname configuration
 
-Put the name of your smtp server domain into /etc/mailname. This should be the exact same name that a reverse DNS lookup returns for your server ip. In other words,
+Put the name of your smtp server domain into `/etc/mailname`. This should be the exact same name that a reverse DNS lookup returns for your server ip. In other words,
 
 ```bash
 nslookup <server ip>
 ```
 
-MUST return the same name, otherwise, many mailservers will reject mail you are trying to send to them.
+**must** return the same name, otherwise, many mailservers will reject mail you are trying to send to them.
 
 ## General
 
-The general configuration happens in /etc/postfix/main.cf:
+The general configuration happens in `/etc/postfix/main.cf`:
 
 ```no-highlight
 # See /usr/share/postfix/main.cf.dist for a commented, more complete version
@@ -128,7 +128,7 @@ alias_maps = hash:/etc/aliases
 
 ## Service / Port specific configuration
 
-This happens in /etc/postfix/master.cf:
+This happens in `/etc/postfix/master.cf`:
 
 ```
 #
@@ -310,7 +310,7 @@ postmap /etc/postfix/vmailbox
 postfix reload
 ```
 
-For the above-mentioned routing to work correctly with catchall accounts, a virtual alias map needs to be created. The main.cf shown above reads it from /etc/postfix/virtual. This file could look like the below example (which would lead to mails sent to foo@example.com being delivered to that user and all other mails being delivered to yrt127):
+For the above-mentioned routing to work correctly with catchall accounts, a virtual alias map needs to be created. The `main.cf` shown above reads it from `/etc/postfix/virtual`. This file could look like the below example (which would lead to mails sent to foo@example.com being delivered to that user and all other mails being delivered to yrt127):
 
 ```
 @example.com yrt127@example.com
@@ -324,13 +324,13 @@ postmap /etc/postfix/virtual
 postfix reload
 ```
 
-Note that these alias maps can also be used to setup mail forwarding. E.g. if you wanted to forward mails to bar@example.com to bar@externaladdress.com you'd just add another line to the file /etc/postfix/virtual:
+Note that these alias maps can also be used to setup mail forwarding. E.g. if you wanted to forward mails to bar@example.com to bar@externaladdress.com you'd just add another line to the file `/etc/postfix/virtual`:
 
 ```
 bar@example.com bar@externaladdress.com
 ```
 
-Lastly, tell postfix which sender addresses this user is allowed to use. Create a file named e.g. /etc/postfix/controlled\_envelope\_senders (again this can be freely chosen)
+Lastly, tell postfix which sender addresses this user is allowed to use. Create a file named e.g. `/etc/postfix/controlled_envelope_senders` (again this can be freely chosen)
 
 ```
 # envelope sender    owners (SASL login names)
@@ -338,7 +338,7 @@ Lastly, tell postfix which sender addresses this user is allowed to use. Create 
 foo@example.com      foo@example.com
 ```
 
-In the above example, yrt127 can use any sender address ending with @example.com while foo MUST use the identity foo@example.com. Again, do
+In the above example, yrt127 can use any sender address ending with @example.com while foo MUST use the identity `foo@example.com`. Again, do
 
 ```bash
 postmap /etc/postfix/controlled_envelope_senders
@@ -349,7 +349,7 @@ Optionally add [Sieve](/sieve) rules to this virtual user account.
 
 ## Blacklisting Recipient Addresses for incoming Mail
 
-Create a file /etc/postfix/recipient_blacklist:
+Create a file `/etc/postfix/recipient_blacklist`:
 
 ```
 recipient@example.com REJECT
@@ -361,7 +361,7 @@ Run postmap on it:
 postmap /etc/postfix/recipient_blacklist
 ```
 
-And add the following line in main.cf TODO substitude by diff with enough environment
+And add the following line in `main.cf` TODO substitude by diff with enough environment
 
 ```
 smtpd_recipient_restrictions = reject_invalid_hostname,
