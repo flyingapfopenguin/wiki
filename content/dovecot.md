@@ -565,10 +565,10 @@ Note that the `<` symbol isn't needed for the ssl parameters anymore.
  # to give additional 100 MB when saving to Trash:
  
  plugin {
--  qouta = dict:User qouta::file:%h/mail/dovecot-qouta
--  qouta_rule = *:storage=1000MB
-+  #qouta = dict:User qouta::file:%h/mail/dovecot-qouta
-+  #qouta_rule = *:storage=1000MB
+-  quota = dict:User qouta::file:%h/mail/dovecot-qouta
+-  quota_rule = *:storage=1000MB
++  #quota = dict:User qouta::file:%h/mail/dovecot-qouta
++  #quota_rule = *:storage=1000MB
    #quota_rule = *:storage=1G
    #quota_rule2 = Trash:storage=+100M
  
