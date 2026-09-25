@@ -92,29 +92,6 @@ The path to the home directory contains placeholders, being `%{user|domain}` for
  #  session = yes
  #  setcred = yes
  #  failure_show_msg = yes
-@@ -39,10 +39,10 @@
- ## User databases
- ##
- 
--# System users (NSS, /etc/passwd, or similiar). In many systems nowadays this
-+# System users (NSS, /etc/passwd, or similar). In many systems nowadays this
- # uses Name Service Switch, which is configured in /etc/nsswitch.conf.
--#userdb passwd-file {
--  #driver = passwd-file
-+userdb passwd-file {
-+  driver = passwd-file
-   #auth_username_format=%{user|lower}
-   #passwd_file_path = /etc/passwd
-   #fields {
-@@ -51,7 +51,7 @@
-   #  home = /var/vmail/%{user}
-   #}
-   #skip = found
--#}
-+}
- 
- # Static settings generated from template <https://doc.dovecot.org/latest/core/config/auth/databases/static.html>
- #userdb static {
 ```
 
 ### Mail User
